@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="./CSS/modal.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans"
@@ -14,11 +14,11 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="./Images/Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
       
-      <a href="#" class="active"><span>Accueil</span></a>
+      
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
@@ -45,7 +45,7 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="./Images/bg_img.jpg" alt="img" />
         </div>
         <button class="btn-signup modal-btn">
           je m'inscris
@@ -60,48 +60,62 @@
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+             
+              onsubmit="displayThanks();"
             >
               <div
                 class="formData">
-                <label>Prénom</label><br>
+                <label for="first">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
                   minlength="2"
-                /><br>
+                />
+                <br>
+                <div id="required_first" class="required-msg"></div>
+                <br>
               </div>
               <div
                 class="formData">
-                <label>Nom</label><br>
+                <label for="last">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
-                /><br>
+                />
+                <br>
+                <div id="required_last" class="required-msg"></div>
+                <br>
               </div>
               <div
                 class="formData">
-                <label>E-mail</label><br>
+                <label for="email">E-mail</label><br>
                 <input
                   class="text-control"
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
-                /><br>
+                />
+                <br>
+                <div id="required_email" class="required-msg"></div>
+                <br>
               </div>
               <div
                 class="formData">
-                <label>Date de naissance</label><br>
+                <label for="birthdate">Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                /><br>
+                  max="2020-02-02"
+                />
+                <br>
+                <div id="required_birthdate" class="required-msg"></div>
+                <br>
               </div>
               <div
                 class="formData">
@@ -110,7 +124,7 @@
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData" id="radio">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -178,7 +192,8 @@
                   Portland</label
                 >
               </div>
-
+              <div id="required_radio" class="required-msg"></div>
+              <br>
               <div
                 class="formData">
                 <input
@@ -192,10 +207,12 @@
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
+                <div id="required_cond" class="required-msg"></div>
+                <br>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
@@ -205,6 +222,10 @@
                 class="button"
                 value="C'est parti"
               />
+              <div class="valid-form" id="modal-thanks">
+                <h2>Merci pour <br> votre inscription</h2>
+                <button class="btn-submit" id="close-modal">Fermer</button>
+              </div>
             </form>
           </div>
         </div>
@@ -215,6 +236,7 @@
         Copyright 2014 - 2022, GameOn Inc.
       </p>
     </footer>
-    <script src="modal.js"></script>
+    <script src="./javascript/modal.js"></script>
+    <script src="./javascript/requiredfield.js"></script>
   </body>
 </html>

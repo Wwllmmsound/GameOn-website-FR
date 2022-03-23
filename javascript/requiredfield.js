@@ -6,27 +6,27 @@ let birthdateOk = false;
 let conditionOk = false;
 let radioOk = false;
 
+const rejex = /^[a-zA-ZÀ-ÿ.]{2,30}$/i;
+const regex = /[A-Z0-9._-]+@[A-Z0-9-]+.[A-Z]{2,4}/gi;
 
 
 //___________________ONCHANGE__FUNCTIONS___________________________________________//
 //_____________________________________FIRST_NAME____________________________________//
 firstName.addEventListener("change", function nameRequired(){
-    const rejex = /^[a-zA-ZÀ-ÿ.]{2,30}$/i;
-    if (!firstName.value.match(rejex)){
-      document.getElementById("required_first").innerText = "Veuillez entrer 2 caractères ou plus pour le champ du prénom";
-      firstName.style.border = "solid 1px red";
-    } else {
-      document.getElementById("required_first").innerText = "";
-      firstName.style.border = "none";
-      nameOk = true;
-    }
-  });
+  if (!firstName.value.match(rejex)){
+    document.getElementById("required_first").innerText = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
+    firstName.style.border = "solid 1px red";
+  } else {
+    document.getElementById("required_first").innerText = "";
+    firstName.style.border = "none";
+    nameOk = true;
+  }
+});
 
 //_____________________________________LAST_NAME_____________________________________//
   lastName.addEventListener("change", function surnameRequired(){
-    const rejex = /^[a-zA-ZÀ-ÿ.]{2,30}$/i;
     if (!lastName.value.match(rejex)){
-      document.getElementById("required_last").innerText = "Veuillez entrer 2 caractères ou plus pour le champ du prénom";
+      document.getElementById("required_last").innerText = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
       lastName.style.border = "solid 1px red";
     } else {
       document.getElementById("required_last").innerText = "";
@@ -38,7 +38,6 @@ firstName.addEventListener("change", function nameRequired(){
 
 //_______________________________________EMAIL________________________________________//
 email.addEventListener("change", function mailRequired(){
-    const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   if (!email.value.match(regex)){
     document.getElementById("required_email").innerText = "Adresse e-mail incorrect";
     email.style.border = "solid 1px red";
@@ -147,9 +146,10 @@ registBtn.addEventListener("click", function(event){
         document.getElementById("required_cond").innerText = "";
         conditionOk = true;
       };
-     //_______________________________________EMAIL________________________________________// 
-      const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if (!email.value.match(regex)){
+     //_______________________________________EMAIL________________________________________//
+       if (email.value === "") {
+        document.getElementById("required_email").innerText = "Veuillez informer votre e-mail";
+      } else if (!email.value.match(regex)){
         document.getElementById("required_email").innerText = "Adresse e-mail incorrect";
         email.style.border = "solid 1px red";
       } else {
@@ -158,8 +158,9 @@ registBtn.addEventListener("click", function(event){
         emailOk = true;
       }
     //_____________________________________LAST_NAME_____________________________________//
-      const rejex = /^[a-zA-ZÀ-ÿ.]{2,30}$/i;
-    if (!lastName.value.match(rejex)){
+    if(lastName.value === "") {
+      document.getElementById("required_last").innerText = "Veuillez compléter le champ du prénom";
+    } else if (!lastName.value.match(rejex)){
       document.getElementById("required_last").innerText = "Veuillez entrer 2 caractères ou plus pour le champ du prénom";
       lastName.style.border = "solid 1px red";
     } else {
@@ -168,8 +169,10 @@ registBtn.addEventListener("click", function(event){
       surnameOk = true;
     }
     //_____________________________________FIRST_NAME____________________________________//
-    if (!firstName.value.match(rejex)){
-        document.getElementById("required_first").innerText = "Veuillez entrer 2 caractères ou plus pour le champ du prénom";
+    if(firstName.value === "") {
+      document.getElementById("required_first").innerText = "Veuillez compléter le champ du nom";
+    } else if (!firstName.value.match(rejex)){
+        document.getElementById("required_first").innerText = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
         firstName.style.border = "solid 1px red";
       } else {
         document.getElementById("required_first").innerText = "";

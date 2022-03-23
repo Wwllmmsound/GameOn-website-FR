@@ -29,7 +29,15 @@ p {
 img {
   padding-right: 1rem;
 }
-
+.logo{
+  height: 45px;
+  width: auto;
+}
+@media screen and (max-width: 540px){
+  .logo{
+    height: 25px;
+  }
+}
 .topnav {
   overflow: hidden;
   margin: 3.5%;
@@ -56,6 +64,7 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav a.active {
@@ -181,6 +190,17 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+}
+
+@media screen and (max-width: 540px) {
+  .content{
+    position: absolute;
+    top: 35px;
+    height: 98%;
+  }
+  .bground {
+    background-color: rgba(26, 39, 156, 0);
+  }
 }
 
 .modal-body {

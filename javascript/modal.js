@@ -18,6 +18,7 @@ const lastName = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const validCondition = document.getElementById("checkbox1");
+const quantity = document.getElementById("quantity");
 
 const radioDiv = document.getElementById("radio");
 const radio1 = document.getElementById("location1");
@@ -27,8 +28,9 @@ const radio4 = document.getElementById("location4");
 const radio5 = document.getElementById("location5");
 const radio6 = document.getElementById("location6");
 
-const rejex = /^[a-zA-ZÀ-ÿ.]{2,30}$/i;
+const rejex = /^[a-zA-ZÀ-ÿ./\s*]{2,30}$/i;
 const regex = /[A-Z0-9._-]+@[A-Z0-9-]+.[A-Z]{2,4}/gi;
+const rejNumb = /^[0-9]/i;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));

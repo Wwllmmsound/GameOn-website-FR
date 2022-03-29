@@ -36,9 +36,12 @@ firstName.addEventListener("change", function nameRequired(){
     }
   });
   //_____________________________________BIRTHDATE____________________________________//
-  birthdate.addEventListener("change", function mailRequired(){
+
+  birthdate.addEventListener("keydown", function (event) { event.preventDefault(); });
+  
+  birthdate.addEventListener("change", function dateRequired(){
       if (birthdate.value < 02/02/2020){
-          document.getElementById("required_birthdate").innerText = "Vous devez entrer votre date de naissance";
+          document.getElementById("required_birthdate").innerText = "Vous devez entrer une date de naissance correcte";
           birthdate.style.border = "solid 1px red";
         } else {
           document.getElementById("required_birthdate").innerText = "";
@@ -79,3 +82,6 @@ firstName.addEventListener("change", function nameRequired(){
         }
   });
   
+  //________________________________________EVENT_QUANTITY__________________//
+
+  quantity.addEventListener("keydown", function (event) { event.preventDefault(); });

@@ -8,14 +8,14 @@ let radioOk = false;
 
 
   
-//______________________________________SUBMIT_FORM_______________________________//
+//______________________________________ONSUBMIT__FUNCTIONS________________________________//
 
 registBtn.addEventListener("click", function(event){
     event.preventDefault();
       //_____________________________________BIRTHDATE____________________________________//
   
       if (birthdate.value < 02/02/2020){
-        document.getElementById("required_birthdate").innerText = "Vous devez entrer votre date de naissance";
+        document.getElementById("required_birthdate").innerText = "Vous devez entrer une date de naissance correcte";
         birthdate.style.border = "solid 1px red";
       } else {
         document.getElementById("required_birthdate").innerText = "";

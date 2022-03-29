@@ -27,6 +27,9 @@ const radio4 = document.getElementById("location4");
 const radio5 = document.getElementById("location5");
 const radio6 = document.getElementById("location6");
 
+const rejex = /^[a-zA-ZÀ-ÿ.]{2,30}$/i;
+const regex = /[A-Z0-9._-]+@[A-Z0-9-]+.[A-Z]{2,4}/gi;
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -39,6 +42,3 @@ function launchModal() {
 closeBtn.addEventListener("click", function() {
   modalbg.style.display = "none";
 });
-
-
-

@@ -108,6 +108,8 @@ registBtn.addEventListener("click", function(event){
         radioOk === true
       ) {
         document.querySelector(".valid-form").style.animation = "modal-validated 0.2s ease-in forwards";
+      } else {
+        document.querySelector(".valid-form").style.animation = "none 0.2s ease-in forwards";
       }
 })
 
